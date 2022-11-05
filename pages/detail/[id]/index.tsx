@@ -48,7 +48,7 @@ const DetailMerchandise: NextPage = () => {
       </Head>
 
       <div className={styleHome['main']} style={{ color: 'white' }}>
-        <div className={styleHome['evermos_logo']} style={{ color: 'white', cursor: 'pointer' }}>
+        <div className={styleHome['evermos_logo']} style={{ color: 'white', cursor: 'pointer', marginBottom: '10%' }}>
           <Image layout='responsive' src='/evermos_logo.png' width={100} height={100} onClick={goToDashboard} alt="not found logo" />
         </div>
         <div className={`${styleHome['container_detail']} ${styleHome['mt-8']}`} style={{ color: 'white' }}>
