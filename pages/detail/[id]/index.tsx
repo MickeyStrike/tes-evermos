@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
 import Card from '../../../components/card'
 import Catalog from '../../../components/catalog'
 import { ResponseDetailMerchandise } from '../../../interfaces/interface/interface.respose'
-import styleHome from '../../../styles/Home.module.css'
+import styleHome from '../../../styles/Home.module.scss'
 
 const DetailMerchandise: NextPage = () => {
   const router = useRouter()

@@ -1,0 +1,75 @@
+/**
+ * Theme Color
+ */
+ $color-primary: #a7ce38;
+ // $color-primary: 167 206 56;
+ $color-light: #e5f0c3;
+ $color-lighter: #edf5d7;
+ $color-lighter-alt: #f6faeb;
+ $color-tertiary: #669b41;
+ $color-dark: #225c49;
+ $color-darker: #094a35;
+ $color-dark-alt: #4c7431;
+ 
+ $color-red: #a80000;
+ $color-red-light: #fde7e9;
+ 
+ $color-green: #107c10;
+ $color-green-light: #dff6dd;
+ $color-green-alt: #669b41;
+ 
+ $color-orange: #d83b01;
+ $color-orange-light: #fed9cc;
+ 
+ $color-yellow: #FFE922;
+ $color-white: #fff;
+ $color-gray: #242424;
+ 
+ $color-gold: #c8a117;
+
+ $color-blue: #0070f3;
+ $color-aqua: #0FEFFD;
+
+ $color-black: #000000;
+ 
+ /**
+  * Gray
+  */
+ $gray-10: #faf9f8;
+ $gray-20: #f3f2f1;
+ $gray-30: #edebe9;
+ $gray-40: #e1dfdd;
+ $gray-50: #d2d0ce;
+ $gray-60: #c8c6c4;
+ $gray-90: #a19f9d;
+ $gray-130: #605e5c;
+ $gray-150: #3b3a39;
+ $gray-160: #323130;
+ $gray-190: #201f1e;
+ 
+ /**
+  * Color Overlays
+  */
+ $overlay-light: rgba(255, 255, 255, 0.4);
+ $overlay-dark: rgba(0, 0, 0, 0.4);
+ 
+ /**
+  * Error Color
+  */
+ $error-state-error-overlay: $color-red-light;
+ $error-state-error: $color-red;
+ 
+ /**
+  * Success Color
+  */
+ $success-state-success-overlay: $color-green-light;
+ $success-state-success: $color-green;
+ 
+ /**
+  * Warning Color
+  */
+ $warning-state-warning: $color-gray;
+ $warning-state-warning-overlay: $color-yellow;
+ $warning-state-warning-severe-overlay: $color-orange-light;
+ $warning-state-warning-severe: $color-orange;
+ 

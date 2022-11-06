@@ -1,7 +1,7 @@
 import React, { useState, useEffect, CSSProperties, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode } from 'swiper';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import 'swiper/css/free-mode'
 import 'swiper/css/scrollbar'
 import 'swiper/css/navigation';

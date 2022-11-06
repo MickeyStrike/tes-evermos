@@ -1,6 +1,6 @@
 import Router from 'next/router'
 import React, { useEffect, useState } from 'react'
-import styles from '../styles/card.module.css'
+import styles from '../styles/card.module.scss'
 
 interface Props {
   imageUrl: string,

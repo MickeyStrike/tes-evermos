@@ -1,0 +1,141 @@
+@use 'colors' as c;
+@use 'variables' as v;
+.card {
+    padding: v.$p-0;
+    position: v.$position-relative;
+    cursor: pointer;
+    &__image {
+        transition: v.$transition-1s;
+        -webkit-transition: v.$transition-1s;
+        -moz-transition: v.$transition-1s;
+        -o-transition: v.$transition-1s;
+        &:hover {
+            height: v.$height-440;
+            width: v.$width-300;
+        }
+
+        &-container {
+            display: v.$flex;
+            justify-content: v.$flex-s;
+            align-items: v.$flex-e;
+            overflow: v.$hide;
+            max-height: v.$max-height;
+            max-width: v.$max-width;
+            &-detail {
+                display: v.$flex;
+                justify-content: v.$flex-s;
+                align-items: v.$flex-e;
+                overflow: v.$hide;
+            }
+        }
+
+    }
+    &__body {
+        &-container {
+            margin: 0 0.8rem 10% 0.8rem;
+            position: v.$position-absolute;
+            color: c.$color-white;
+            bottom: v.$b-0;
+            transition: v.$transition-06s;
+            -webkit-transition: v.$transition-06s;
+            -moz-transition: v.$transition-06s;
+            -o-transition: v.$transition-06s;
+            z-index: v.$z-index;
+            &-detail {
+                margin: 0 0 0 0.8rem;
+                position: v.$position-absolute;
+                color: c.$color-white;
+                bottom: v.$b-10;
+                transition: v.$transition-06s;
+                -webkit-transition: v.$transition-06s;
+                -moz-transition: v.$transition-06s;
+                -o-transition: v.$transition-06s;
+                z-index: v.$z-index;
+              }
+        }
+    }
+
+    &:hover {
+        .card__body-container {
+            bottom: v.$b-5;
+        }
+        .card-view-detail {
+            opacity: 1;
+        }
+        .card-image {
+            height: 520px;
+            width: v.$width-300;
+        }
+    }
+
+    &-tags {
+        background: rgba(0, 255, 255, 0.199);
+        color: c.$color-aqua;
+        padding: v.$p-3px;
+        font-family: v.$font-family;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: v.$font-size-12;
+        line-height: v.$line-height-16;
+    }
+
+    &-title {
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight;
+        font-size: v.$font-size-24;
+        line-height: v.$line-height;
+        max-width: v.$max-width;
+    }
+
+    &-image {
+        background-color: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%);
+        background-size: v.$background-size;
+        background-position: v.$background-position;
+        width: v.$width-300;
+        height: v.$height-480;
+        transition: v.$transition-06s;
+        -webkit-transition: v.$transition-06s;
+        -moz-transition: v.$transition-06s;
+        -o-transition: v.$transition-06s;
+        &-detail {
+            background-color: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%);
+            background-size: v.$background-size;
+            background-position: v.$background-position;
+            width: v.$width-300;
+            height: v.$height-500;
+            transition: v.$transition-06s;
+            -webkit-transition: v.$transition-06s;
+            -moz-transition: v.$transition-06s;
+            -o-transition: v.$transition-06s;
+        }
+    }
+
+    &-view-detail {
+        margin: 0 0.8rem;
+        position: v.$position-absolute;
+        color: c.$color-yellow;
+        transform: translateY(-150%);
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight;
+        font-size: v.$font-size-18;
+        line-height: v.$line-height;
+        opacity: 0;
+        transition: v.$transition-02s;
+        -webkit-transition: v.$transition-02s;
+        -moz-transition: v.$transition-02s;
+        -o-transition: v.$transition-02s;
+    }
+
+
+    &-price {
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-400;
+        font-size: v.$font-size-16;
+        line-height: v.$line-height;
+        opacity: 0.6;
+        margin-left: v.$ml-10px;
+    }
+}

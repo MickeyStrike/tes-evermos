@@ -1,0 +1,253 @@
+@use 'colors' as c;
+@use 'variables' as v;
+.main {
+    background: c.$color-black;
+    margin: 0 auto;
+    max-width: 1500px;
+    @media only screen and (max-width: 900px) {
+        width: 1000;
+    }
+}
+
+.title {
+    margin: v.$m-0;
+    line-height: 1.15;
+    font-size: 4rem;
+    text-align: center;
+    a {
+        color: c.$color-blue;
+        text-decoration: none;
+        &:hover,
+        &:focus,
+        &:active{
+            text-decoration: underline;
+        }
+    }
+    &-list {
+        margin-left: v.$ml-10;
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-700;
+        font-size: v.$font-size-32;
+        line-height: v.$line-height-37;
+        color: c.$color-white;
+    }
+    &-detail-product {
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-700;
+        font-size: v.$font-size-32;
+        line-height: v.$line-height-37;
+        color: c.$color-white;
+    }
+    &-tags {
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-normal;
+        font-size: v.$font-size-16;
+        line-height: v.$line-height-32;
+        color: c.$color-white;
+        align-items: v.$items-center;
+        @media (max-width: 754px) {
+            display: none !important;
+        }
+    }
+}
+
+.card {
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: v.$text-left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    max-width: 300px;
+    &:hover,
+    &:focus,
+    &:active {
+        color: c.$color-blue;
+        border-color: c.$color-blue;
+    }
+    h2 {
+        margin: 0 0 1rem 0;
+        font-size: 1.5rem;
+    }
+    p {
+        margin: v.$m-0;
+        font-size: 1.25rem;
+        line-height: v.$line-height-1;
+      }
+}
+
+.container {
+    width: 1536;
+    background: c.$color-black;
+    &_text {
+        display: v.$flex;
+        flex-direction: v.$flex-col;
+        justify-content: v.$justify-center;
+        @media (max-width: 400px) {
+            padding: 0 10%;
+        }
+    }
+    &_title {
+        color: c.$color-white;
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-bold;
+        font-size: v.$font-size-56;
+        line-height: v.$line-height-64;
+        margin: 10px 0;
+        max-width: 600px;
+        @media (max-width: 900px) {
+            font-size: v.$font-size-36 !important;
+        }
+        @media (max-width: 600px) {
+            font-size: v.$font-size-24 !important;
+            line-height: 34px !important;     
+        }
+
+    }
+    &_description {
+        color: c.$color-white;
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-normal;
+        font-size: v.$font-size-16;
+        line-height: v.$line-height-32;
+        color: c.$color-white;
+        margin: 10px 0;
+        @media (max-width: 900px) {
+            font-size: v.$font-size-16 !important;
+        }
+        @media (max-width: 600px) {
+            font-size: v.$font-size-10 !important;
+            line-height: v.$line-height-16 !important;  
+        }
+    }
+    &_welcome {
+        height: 100vh;
+        display: v.$flex;
+        flex-wrap: v.$flex-nowrap;
+        justify-content: v.$justify-space-between;
+        & > * {
+            flex: 1 1 50%;
+        }
+    }
+    &_image {
+        height: 100vh;
+        display: v.$flex;
+        flex-direction: v.$flex-col;
+        align-content: v.$content-center;
+        justify-content: v.$justify-center;
+        @media (max-width: 400px) {
+            display: none !important;
+        }
+    }
+    &_button {
+        color: c.$color-yellow;
+        background: rgba(255, 233, 34, 0);
+        cursor: v.$cursor-pointer;
+        border: c.$color-yellow 1px solid;
+        padding: 12px 40px;
+        border-radius: 24px;
+        margin-top: v.$mt-10px;
+        font-size: v.$font-size-18;
+        font-weight: v.$font-weight;
+        @media (max-width: 900px) {
+            padding: 12px 30px !important;
+        }
+        @media (max-width: 600px) {
+            padding: 6px 20px !important; 
+        }
+    }
+    &_flex {
+        display: v.$flex;
+        flex-wrap: v.$flex-nowrap;
+        justify-content: v.$justify-space-between;
+        margin: 1rem 0 2rem 0;
+        align-items: v.$items-center;
+    }
+    &_detail {
+        padding: 0 10%;
+        display: v.$flex;
+        flex-direction: v.$flex-row;
+        width: 100%;
+        gap: 2rem;
+        @media (max-width: 754px) {
+            flex-direction: v.$flex-col;
+        }
+    }
+}
+
+.row {
+    display: v.$flex;
+    flex-direction: v.$flex-row;
+    flex-wrap: v.$flex-wrap;
+    width: 100%;
+    @media (max-width: 754px) {
+        flex-direction: v.$flex-col;
+    }
+}
+
+.evermos_logo {
+    position: v.$position-absolute;
+    top: v.$t-5;
+    left: v.$l-10;
+    /* padding: 0 10%; */
+    max-width: 200px;
+    max-height: 200px;
+    @media (max-width: 754px) {
+        top: v.$t-2;
+    }
+    @media (max-width: 525px) {
+        top: v.$t-0;
+    }
+}
+
+.body {
+    &-detail-product {
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-normal;
+        font-size: v.$font-size-16;
+        line-height: v.$line-height-32;
+        background: c.$color-gray;
+        padding: 16px;
+        margin-top: v.$mt-2rem;
+        opacity: 0.6;
+    }
+    &-tags {
+        font-family: v.$font-family;
+        font-style: v.$font-style;
+        font-weight: v.$font-weight-700;
+        font-size: v.$font-size-16;
+        line-height: v.$line-height-32;
+        color: c.$color-white;
+        align-items: v.$items-center;
+        @media (max-width: 754px) {
+            display: none;
+        }
+      }
+}
+
+.mt-8 {
+    margin-top: v.$mt-8;
+}
+
+.column {
+    flex: 1 0 0%
+}
+
+.see-all-list {
+    margin-right: v.$mr-14;
+    font-family: v.$font-family;
+    font-style: v.$font-style;
+    font-weight: v.$font-weight-bold;
+    font-size: v.$font-size-16;
+    line-height: v.$line-height-18;
+    color: c.$color-yellow;
+    cursor: v.$cursor-pointer;
+}
