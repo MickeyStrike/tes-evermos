@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties, useRef } from 'react'
+import React, { useState, useEffect, CSSProperties, useRef, useContext, MutableRefObject } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode } from 'swiper';
 import styles from '../styles/Home.module.scss'
@@ -11,6 +11,7 @@ import axios from 'axios';
 import { DataSource, ResponseGetListProduct } from '../interfaces/interface/interface.respose';
 import { NextPage } from 'next';
 import Image from 'next/image';
+import { StoreContext } from '../pages/_app';
 
 interface Props {
   dataProps?: DataSource[];
@@ -20,16 +21,22 @@ interface Props {
   sequenceItem?: number | string;
   getTheIntersection?: (isIntersecting: boolean, key: number | string) => void;
   handleViewCatalog?: () => void;
+  refCatalog?: (ref: MutableRefObject<null | HTMLInputElement>) => void
 }
 
-const ListMerchandise:NextPage<Props> = ({ dataProps, title, style, page = 1, getTheIntersection, sequenceItem }) => {
+const ListMerchandise:NextPage<Props> = ({ dataProps, title, style, page = 1, getTheIntersection, sequenceItem, refCatalog }) => {
 
-  const containerRef = useRef(null)
+  const containerRef = useRef<null | HTMLInputElement>(null)
   const options = {
     root: null,
     rootMargin: '0px',
     threshold: 1.0
   }
+
+  const {
+    stateContext,
+    actions: { actionSetTriggerViewCatalog },
+  } = useContext(StoreContext);
 
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     const [entry] = entries
@@ -39,6 +46,13 @@ const ListMerchandise:NextPage<Props> = ({ dataProps, title, style, page = 1, ge
   const [listData, setListData] = useState<DataSource[]>([])
   const [titleList, setTitleList] = useState('')
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if(title === 'Catalog' && stateContext.trigger && refCatalog) {
+      actionSetTriggerViewCatalog(false)
+      refCatalog(containerRef)
+    }
+  }, [stateContext.trigger])
 
   const getListMerchandise = () => {
     const params = {
@@ -61,6 +75,7 @@ const ListMerchandise:NextPage<Props> = ({ dataProps, title, style, page = 1, ge
         }).filter((dataFilter, index) => index < 8)
         setListData(tempData)
       })
+      .catch(() => getListMerchandise())
       .finally(() => {
         setTimeout(() => {
           setLoading(false)
@@ -89,7 +104,7 @@ const ListMerchandise:NextPage<Props> = ({ dataProps, title, style, page = 1, ge
     }
   }, [containerRef, options])
 
-  if(loading) return (
+  if(loading && title !== 'Catalog') return (
   <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center' }}>
     <Image src={'/loading2.gif'} width={100} height={100} alt="not found" />
   </div> )

@@ -1,10 +1,16 @@
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Catalog from '../components/catalog'
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Head from 'next/head'
+import { StoreContext } from './_app'
 
 export default function Home() {
+
+  const {
+    stateContext,
+    actions: { actionSetTriggerViewCatalog },
+  } = useContext(StoreContext);
 
   const [listProduct, setListProduct] = useState({ list1: true, list2: false, list3: false })
 
@@ -19,6 +25,14 @@ export default function Home() {
       default:
         break
     }
+  }
+
+  const handleViewCatalog = () => {
+    actionSetTriggerViewCatalog(true)
+  }
+
+  const refCatalog = (ref: React.MutableRefObject<null | HTMLInputElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -50,10 +64,10 @@ export default function Home() {
         <div className={styles.container_text}>
           <p className={styles.container_title}>Be cool with your fashion</p>
           <p className={styles.container_description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error asperiores distinctio id sed eveniet voluptate sequi consectetur sit repellendus iure quibusdam quo, culpa rerum nesciunt ut iusto molestiae odio atque.</p>
-          <button className={styles.container_button}>View Catalog</button>
+          <button className={styles.container_button} onClick={handleViewCatalog}>View Catalog</button>
         </div>
       </div>
-      { listProduct.list1 ? <Catalog style={{ marginTop: '2.1rem' }} title='Catalog' key={1} sequenceItem={1} getTheIntersection={getTheIntersection}></Catalog> : null }
+      { listProduct.list1 ? <Catalog style={{ marginTop: '2.1rem' }} title='Catalog' key={1} sequenceItem={1} getTheIntersection={getTheIntersection} refCatalog={refCatalog}></Catalog> : null }
       { listProduct.list2 ? <Catalog style={{ marginTop: '2.1rem' }} key={2} sequenceItem={2} title='New Product' getTheIntersection={getTheIntersection} page={2} /> : null }
       { listProduct.list3 ? <Catalog style={{ marginTop: '2.1rem' }} title='Hot Product' key={3} sequenceItem={3} getTheIntersection={getTheIntersection}></Catalog> : null }
     </div>

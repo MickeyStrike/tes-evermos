@@ -1,10 +1,18 @@
-import { ACTION_TYPE } from "../enum/enum.action";
+import { ACTION_TYPE } from "../enums/enum.action";
 
 export interface InitialState {
-  count: number
+  trigger: boolean,
 }
 
 export interface ActionReducer {
   type: ACTION_TYPE,
-  payload: number
+  payload: InitialState
+}
+
+import { Dispatch } from 'react';
+
+export interface ActionCatalog {
+  actionSetTriggerViewCatalog: (
+    trigger: boolean
+  ) => (dispatch: Dispatch<ActionReducer>) => void;
 }
